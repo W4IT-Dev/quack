@@ -1,0 +1,29 @@
+{
+  "version": "0.0.6",
+  "name": "KaiKaiGo",
+  "description": "A file simple example manifest.webapp",
+  "type": "privileged",
+  "launch_path": "/index.html",
+  "icons": {
+    "56": "/icon.png",
+    "112": "/icon.png"
+  },
+  "developer": {
+    "name": "W4IT Dev",
+    "url": "http://yourawesomeapp.com"
+  },
+  "locales": {
+    "en-US": {
+      "name": "KaiKaiGo",
+      "subtitle": "Unofficial DuckDuckGo Client",
+      "description": "Browse through DuckDuckGo"
+    }
+  },
+  "default_locale": "en-US",
+  "permissions": {
+    "systemXHR": {
+      "description": "Required to use this app"
+    }
+  },
+  "theme_color": "#ffffff"
+}

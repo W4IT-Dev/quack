@@ -1,0 +1,136 @@
+/* Basic styles for simplicity */
+
+input[type="text"] {
+    width: 180px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    outline: none !important;
+
+}
+
+#searchBarWrapper {
+
+    /* flex-wrap: wrap; */
+    /* width: 200px; */
+    gap: 3px;
+}
+
+.search-result {
+    text-align: left;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.search-result:focus {
+    background-color: rgb(13, 13, 13);
+}
+
+.search-result__snippet {
+    color: rgb(204, 204, 204);
+}
+
+.quick-result {
+    background-color: rgb(40, 40, 40);
+}
+
+.quick-result:focus {
+    background-color: rgb(25, 25, 25);
+}
+
+.search-result-image {
+    max-width: 200px;
+    max-height: 100px;
+}
+
+a {
+    color: rgb(34, 34, 34);
+}
+
+/* NEW */
+
+body {
+    width: 240px;
+    height: 294px;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: rgb(34, 34, 34);
+}
+
+#searchBarWrapper {
+    display: flex;
+    gap: 3px;
+    margin: 10px 8px 8px 8px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(208, 208, 208);
+}
+
+#searchButton {
+    width: 40px;
+}
+
+
+#searchInput, #searchButton {
+    background: none;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px 0px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    border-radius: 4px;
+    font-size: 19px;
+    line-height: 10px;
+}
+
+.quick-result,
+.search-result {
+    margin: 0;
+    padding: 5px 11px 15px 11px;
+}
+
+.quick-result {
+    background-color: rgb(242, 242, 242);
+    color: rgb(34, 34, 34);
+}
+
+.search-result__title,
+.quick-result__title {
+    font-size: 18.864px;
+    font-weight: 400;
+}
+
+.quick-result__title a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.search-result__title a {
+    color: rgb(0, 39, 142);
+}
+
+.search-result__snippet {
+    color: rgb(73, 73, 73);
+}
+
+.search-result__url {
+    color: rgb(32, 105, 43);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.search-result__url::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: var(--icon-url);
+    background-size: cover;
+    background-position: center;
+    margin-right: 8px;
+}
+
+*:focus {
+    background-color: #bcb !important;
+}

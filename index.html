@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDuckGo Search</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="/JavaScript/DOM.js" defer></script>
+    <script src="/nav.js" defer></script>
+    <script src="/JavaScript/script.js" defer></script>
+    <script src="/JavaScript/search.js" defer></script>
+    <script src="/JavaScript/keydown.js"></script>
+
+</head>
+
+<body tabindex="">
+    <img id="duckduckgoLogo" src="icon.png" width="137px" alt="DuckDuckGo">
+    <div id="searchBarWrapper">
+        <input type="text" id="searchInput" class="navItem" tabindex="0" placeholder="Search">
+        <button onclick="search(searchInput.value)" id="searchButton"><img src="loupe_black.png" width="20px"
+                class="navItem" tabindex="0"></button>
+    </div>
+
+    <div class="search-results" id="searchResults"></div>
+
+</body>
+
+</html>
