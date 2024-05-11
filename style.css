@@ -68,17 +68,32 @@ body {
     border-bottom: 1px solid rgb(208, 208, 208);
 }
 
+#searchInput {
+    background: url("/loupe_gray.png") no-repeat;
+    background-size: 19px;
+    background-position: 196px center;
+    padding-right: 30px;
+}
+
+#searchInput:focus {
+    background: url("/loupe_focus.png") no-repeat;
+    background-size: 40px;
+    background-position: 183px;
+    padding-right: 30px;
+}
+
 #searchButton {
     width: 40px;
 }
 
 
-#searchInput, #searchButton {
-    background: none;
+#searchInput,
+#searchButton {
+    width: 100%;
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px 0px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 3px 0px;
     height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.32);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     font-size: 19px;
     line-height: 10px;
@@ -95,6 +110,7 @@ body {
     color: rgb(34, 34, 34);
 }
 
+
 .search-result__title,
 .quick-result__title {
     font-size: 18.864px;
@@ -103,11 +119,17 @@ body {
 
 .quick-result__title a {
     font-weight: 600;
+
     text-decoration: none;
 }
 
 .search-result__title a {
     color: rgb(0, 39, 142);
+}
+
+.quick-result__image {
+    max-width: 230px;
+    max-height: 100px;
 }
 
 .search-result__snippet {
@@ -132,6 +154,8 @@ body {
     z-index: 100000000;
 }
 
-*:focus {
-    background-color: #bcb !important;
+.quick-result:focus,
+.search-result:focus {
+    outline: 1px solid red;
+    background-color: #d3d3d3 !important;
 }

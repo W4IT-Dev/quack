@@ -5,7 +5,8 @@ function imageSearch(query) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             console.log(xhr.responseText)
-            alert(xhr.responseText)
+            let a = confirm(xhr.responseText)
+            if (a === true) document.body.innerHTML = xhr.responseText
             // parseSearchResults(xhr.responseText);
         }
     };
@@ -59,13 +60,43 @@ function parseSearchResults(html) {
         if (!result.classList.contains('result--ad')) displaySearchResult(result.querySelector('.result__a').textContent, result.querySelector('.result__snippet').textContent, result.querySelector('.result__url'), result.querySelector('.result__icon__img').src)
     });
     searchResults.querySelector('.navItem').focus();
+    var links = document.querySelectorAll("a[href]");
+    links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            // Add your loading event here
+            event.preventDefault();
+            let openType = prompt('How do you want to open this site? (app/tab/browser)')
+            navigator.spatialNavigationEnabled = true;
+            if (openType === "app") return window.location.href = event.target.href; 
+            if (openType === "tab") return window.open(event.target.href), navigator.spatialNavigationEnabled = false;
+            if (openType === "browser") {
+                let openURL = new MozActivity({
+                    name: "view",
+                    data: {
+                        type: "url",
+                        url: event.target.href
+                    }
+                });
+
+                openURL.onsuccess = () =>
+                    console.log('Opened!');
+                openURL.onerror = () =>
+                    console.warn('Error!');
+                navigator.spatialNavigationEnabled = false;
+                return
+            }
+            console.log(event.target.href)
+            console.log("Loading event triggered");
+            // Optionally, prevent the default navigation behavior
+        });
+    });
 }
 
 function displayQuickResult(title, snippet, url, image) {
     searchResults.innerHTML += `
     <div class="quick-result navItem" tabindex="0">
         ${image ? `<img src="${image}" alt="" class="quick-result__image">` : ''}
-        <h2 class="quick-result__title"><a href="${url}">${title}</a></h2>
+        <h1 class="quick-result__title"><a href="${url}">${title}</a></h1>
         <p class="quick-result__snippet">${snippet}</p>
     </div>
     `

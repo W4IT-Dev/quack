@@ -4,7 +4,7 @@ let currentIndex = 0;
 
 function handleKeyDown(event) {
     const keyPressed = event.key;
-
+    if (keyPressed === "Enter" &&!document.querySelector('#searchResults')) document.activeElement.click();
     if (keyPressed === keySequence[currentIndex]) {
         currentIndex++;
 

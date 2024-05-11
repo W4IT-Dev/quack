@@ -1,5 +1,5 @@
 {
-  "version": "0.0.7",
+  "version": "0.0.10",
   "name": "KaiKaiGo",
   "description": "A file simple example manifest.webapp",
   "type": "privileged",
@@ -24,8 +24,9 @@
     "systemXHR": {
       "description": "Required to use this app"
     },
-    "spatialnavigation-app-manage": {}
+    "spatialnavigation-app-manage": {
+      "description": "Required to use the cursor."
+    }
   },
-  "cursor": false,
   "theme_color": "#ffffff"
 }

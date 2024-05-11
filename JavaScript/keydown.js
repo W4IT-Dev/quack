@@ -1,4 +1,4 @@
-document.addEventListener('keydown', e => {
+window.addEventListener('keydown', e => {
     if (e.key == "Enter") {
         const activeElement = document.activeElement;
         if (activeElement.classList.toString().includes('result')) return activeElement.querySelector('a').click();
@@ -6,12 +6,8 @@ document.addEventListener('keydown', e => {
         if (activeElement == searchInput) return search(searchInput.value)
     }
     if (e.key === "0") {
-        navigator.spatialNavigationEnabled === true ? navigator.spatialNavigationEnabled = true : navigator.spatialNavigationEnabled = false
+        navigator.spatialNavigationEnabled = true;
     }
 
-    if (e.key == "8") {
-        // imageSearch('samra')
-    }
-
+    if(e.key === "9") imageSearch('samra')
 })
-
