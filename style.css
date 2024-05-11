@@ -129,6 +129,7 @@ body {
     background-size: cover;
     background-position: center;
     margin-right: 8px;
+    z-index: 100000000;
 }
 
 *:focus {

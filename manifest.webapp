@@ -1,5 +1,5 @@
 {
-  "version": "0.0.6",
+  "version": "0.0.7",
   "name": "KaiKaiGo",
   "description": "A file simple example manifest.webapp",
   "type": "privileged",
@@ -10,7 +10,7 @@
   },
   "developer": {
     "name": "W4IT Dev",
-    "url": "http://yourawesomeapp.com"
+    "url": "http://github.com/w4it-dev/duckduckgo"
   },
   "locales": {
     "en-US": {
@@ -23,7 +23,9 @@
   "permissions": {
     "systemXHR": {
       "description": "Required to use this app"
-    }
+    },
+    "spatialnavigation-app-manage": {}
   },
+  "cursor": false,
   "theme_color": "#ffffff"
 }

@@ -5,5 +5,13 @@ document.addEventListener('keydown', e => {
 
         if (activeElement == searchInput) return search(searchInput.value)
     }
-    if (e.key === "0") navigator.spatialNavigationEnabled = !navigator.spatialNavigationEnabled;
+    if (e.key === "0") {
+        navigator.spatialNavigationEnabled === true ? navigator.spatialNavigationEnabled = true : navigator.spatialNavigationEnabled = false
+    }
+
+    if (e.key == "8") {
+        // imageSearch('samra')
+    }
+
 })
+
