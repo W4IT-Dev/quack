@@ -1,6 +1,6 @@
-function nav(move) {
+function nav(move, classList) {
     const currentIndex = document.activeElement;
-    const items = document.querySelectorAll('.navItem');
+    const items = document.querySelectorAll('.' + classList);
     let currentElemIdx = [...items].indexOf(currentIndex)
     const next = currentElemIdx + move;
     let targetElement = items[next];
@@ -8,6 +8,6 @@ function nav(move) {
 }
 
 document.addEventListener('keydown', e => {
-    if (e.key == "ArrowDown") nav(1);
-    if (e.key == "ArrowUp") nav(-1);
+    if (e.key == "ArrowDown") document.activeElement.classList.contains('selectionNavItem') ?  nav(1, 'selectionNavItem') : nav(1, 'navItem');
+    if (e.key == "ArrowUp") document.activeElement.classList.contains('selectionNavItem') ?  nav(-1, 'selectionNavItem') : nav(-1, 'navItem');
 })

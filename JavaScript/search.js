@@ -65,26 +65,11 @@ function parseSearchResults(html) {
         link.addEventListener("click", function (event) {
             // Add your loading event here
             event.preventDefault();
-            let openType = prompt('How do you want to open this site? (app/tab/browser)')
-            navigator.spatialNavigationEnabled = true;
-            if (openType === "app") return window.location.href = event.target.href; 
-            if (openType === "tab") return window.open(event.target.href), navigator.spatialNavigationEnabled = false;
-            if (openType === "browser") {
-                let openURL = new MozActivity({
-                    name: "view",
-                    data: {
-                        type: "url",
-                        url: event.target.href
-                    }
-                });
+            console.log(document.activeElement);
+            showSelectionMenu(event.target.href, document.activeElement);
 
-                openURL.onsuccess = () =>
-                    console.log('Opened!');
-                openURL.onerror = () =>
-                    console.warn('Error!');
-                navigator.spatialNavigationEnabled = false;
-                return
-            }
+            return
+
             console.log(event.target.href)
             console.log("Loading event triggered");
             // Optionally, prevent the default navigation behavior
@@ -94,7 +79,7 @@ function parseSearchResults(html) {
 
 function displayQuickResult(title, snippet, url, image) {
     searchResults.innerHTML += `
-    <div class="quick-result navItem" tabindex="0">
+    <div class="quick-result navItem" tabindex="0" onblur="setSoftkey()" onfocus="setSoftkey('','open')">
         ${image ? `<img src="${image}" alt="" class="quick-result__image">` : ''}
         <h1 class="quick-result__title"><a href="${url}">${title}</a></h1>
         <p class="quick-result__snippet">${snippet}</p>
@@ -105,6 +90,8 @@ function displayQuickResult(title, snippet, url, image) {
 function displaySearchResult(title, snippet, urlElement, icon) {
     let div = document.createElement('div');
     div.classList.add('search-result', 'navItem')
+    div.onfocus = () => setSoftkey('<img src="/loupe_black.png" style="width:20px; padding-top: 2px;">', 'open')
+    div.onblur = () => setSoftkey()
     div.tabIndex = 0;
     div.dataset.icon = icon
     div.innerHTML = `

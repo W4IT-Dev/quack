@@ -60,6 +60,10 @@ body {
     color: rgb(34, 34, 34);
 }
 
+.hidden {
+    display: none !important;
+}
+
 #searchBarWrapper {
     display: flex;
     gap: 3px;
@@ -158,4 +162,118 @@ body {
 .search-result:focus {
     outline: 1px solid red;
     background-color: #d3d3d3 !important;
+}
+
+/*  selection modal thinggy */
+#selectionsWrapper {
+    height: 294px;
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(210, 210, 210, 0.6)
+}
+
+#selectionDiv {
+    background-color: rgb(255, 255, 255);
+    width: 220px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* margin: auto; */
+    border-radius: 8px;
+    border: 1px solid rgba(34, 34, 34, 0.35);
+    overflow: hidden;
+}
+
+#selectionHeader {
+    background-color: rgb(237, 237, 237);
+    color: rgb(24, 24, 24);
+    padding: 8px 12px 10px 12px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#selectionOptions {
+    padding: 6px 6px 8px 6px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectionOption {
+    background: none;
+    outline: none;
+    border: none;
+    text-align: left;
+    padding: 7px 8px;
+    font-size: 17px;
+    color: rgb(48, 48, 48);
+}
+
+.selectionOption:focus {
+    background-color: rgb(227, 227, 227);
+    color: rgb(34, 34, 34);
+    font-weight: 600;
+
+    outline-style: none;
+}
+
+/*  softkeys */
+
+#softkeys {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 16px;
+    padding: 0 3.5px 4px 3.5px;
+}
+
+#softkeys div {
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 0.3px 6.5px;
+    line-height: 23px;
+    box-shadow: rgba(0, 0, 0, 0.31) 1.1px 1.9px 3.5px 0.8px;
+    max-width: 33%;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+#softkeys div.hidden {
+    display: block !important;
+    opacity: 0;
+}
+
+#left {
+    text-align: left;
+}
+
+#center {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 2px 5px !important;
+    max-width: 35%;
+
+}
+
+#right {
+    text-align: right;
+}
+
+iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 294px;
+    width: 240px;
+    outline: 20px solid red;
+    z-index: 1000000;
 }
