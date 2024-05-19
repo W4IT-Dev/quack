@@ -1,0 +1,15 @@
+{
+    "app_name": "KaiKaiGo",
+    "autocomplete_search": "Autocomplete Suggestions",
+    "browser": "Browser",
+    "dark_mode": "Dark mode",
+    "default_open_via": "Open via default",
+    "font_size": "Font size",
+    "language": "Display language",
+    "open": "Open",
+    "open_via": "Open via",
+    "seach_placeholder": "Search",
+    "search": "Search",
+    "settings": "Settings",
+    "tab": "Tab"
+  }

@@ -1,0 +1,15 @@
+{
+    "app_name": "KaiKaiGo",
+    "autocomplete_search": "Sugerencias de autocompletado",
+    "browser": "Navegador",
+    "dark_mode": "Modo oscuro",
+    "default_open_via": "Abrir vía defecto",
+    "font_size": "Tamaño de la fuente",
+    "language": "Idioma de visualización",
+    "open": "Abrir",
+    "open_via": "Abrir vía",
+    "seach_placeholder": "Buscar",
+    "search": "Busca",
+    "settings": "Ajustes",
+    "tab": "Tab"
+  }

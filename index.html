@@ -7,12 +7,15 @@
     <title>DuckDuckGo Search</title>
     <link rel="stylesheet" href="style.css">
 
+    <script src="Translations/translate.js" defer></script>
+
     <script src="/JavaScript/DOM.js" defer></script>
-    <script src="/nav.js" defer></script>
     <script src="softkey.js" defer></script>
     <script src="/JavaScript/script.js" defer></script>
     <script src="/JavaScript/search.js" defer></script>
-    <script src="/JavaScript/keyup.js" defer></script>
+    <script src="/JavaScript/keypress.js" defer></script>
+    <script src="/nav.js" defer></script>
+
 
     <script src="/debug.js" defer></script>
 
@@ -24,25 +27,25 @@
             <img id="duckduckgoLogo" src="icon.png" width="137px" alt="DuckDuckGo">
             <div id="searchBarWrapper">
                 <input type="text" id="searchInput" class="navItem" tabindex="0" placeholder="Search"
-                    onblur="setSoftkey()" onfocus="setSoftkey('', `Search`)">
+                    onblur="setSoftkey()" onfocus="setSoftkey('', `search`)" data-translate="search_placeholder">
             </div>
         </div>
         <div id="searchResults"></div>
     </div>
     <div id="selectionsWrapper" class="hidden">
         <div id="selectionDiv">
-            <div id="selectionHeader">Open via</div>
+            <div id="selectionHeader" data-translate="open_via">Open via</div>
             <div id="selectionOptions">
-                <button class="selectionOption selectionNavItem" id="selectionOptions1" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')">App</button>
-                <button class="selectionOption selectionNavItem" id="selectionOptions2" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')">Tab</button>
-                <button class="selectionOption selectionNavItem" id="selectionOptions3" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')">Browser</button>
-                <button class="selectionOption selectionNavItem hidden" id="selectionOptions4" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')"></button>
-                <button class="selectionOption selectionNavItem hidden" id="selectionOptions5" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')"></button>
+                <!-- <button class="selectionOption selectionNavItem" id="selectionOptions1" tabindex="0"
+                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')">App</button> -->
+                <div class="selectionOption selectionNavItem" id="selectionOptions1" tabindex="0" onblur="setSoftkey();"
+                    onfocus="setSoftkey('', 'select')" data-translate="tab">Tab</div>
+                <div class="selectionOption selectionNavItem" id="selectionOptions2" tabindex="0" onblur="setSoftkey();"
+                    onfocus="setSoftkey('', 'select')" data-translate="browser">Browser</div>
+                <div class="selectionOption selectionNavItem hidden" id="selectionOptions3" tabindex="0"
+                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')"></div>
+                <div class="selectionOption selectionNavItem hidden" id="selectionOptions4" tabindex="0"
+                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')"></div>
 
             </div>
         </div>

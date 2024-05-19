@@ -79,7 +79,7 @@ function parseSearchResults(html) {
 
 function displayQuickResult(title, snippet, url, image) {
     searchResults.innerHTML += `
-    <div class="quick-result navItem" tabindex="0" onblur="setSoftkey()" onfocus="setSoftkey('','open')">
+    <div class="quick-result navItem" tabindex="0" onblur="setSoftkey()" onfocus="setSoftkey('', \`${translate('open')}\`)">
         ${image ? `<img src="${image}" alt="" class="quick-result__image">` : ''}
         <h1 class="quick-result__title"><a href="${url}">${title}</a></h1>
         <p class="quick-result__snippet">${snippet}</p>
@@ -90,7 +90,7 @@ function displayQuickResult(title, snippet, url, image) {
 function displaySearchResult(title, snippet, urlElement, icon) {
     let div = document.createElement('div');
     div.classList.add('search-result', 'navItem')
-    div.onfocus = () => setSoftkey('<img src="/loupe_black.png" style="width:20px; padding-top: 2px;">', 'open')
+    div.onfocus = () => setSoftkey('<img src="/loupe_black.png" style="width:20px; padding-top: 2px;">', `${translate('open')}`)
     div.onblur = () => setSoftkey()
     div.tabIndex = 0;
     div.dataset.icon = icon

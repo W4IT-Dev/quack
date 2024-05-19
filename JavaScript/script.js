@@ -15,20 +15,9 @@ document.querySelector('.navItem').focus();
 
 function showSelectionMenu(href, lastFocusedElement) {
   const elements = document.querySelectorAll('.selectionOption')
-  elements[0].onkeydown = (e) => {
-    if (e.key == "Enter") {
-      const iframe = document.querySelector('iframe')
-      iframe.src = href;
-      iframe.classList.remove('hidden')
-      iframe.focus();
-      document.querySelector('#search').classList.add('hidden')
-      navigator.spatialNavigationEnabled = true;
 
-      closeSelectionMenu(lastFocusedElement);
-    }
-  }
-  elements[1].onkeydown = (e) => { if (e.key == "Enter") window.open(href), closeSelectionMenu(lastFocusedElement); }
-  elements[2].onkeydown = (e) => {
+  elements[0].onkeydown = (e) => { if (e.key == "Enter") window.open(href), closeSelectionMenu(lastFocusedElement); }
+  elements[1].onkeydown = (e) => {
     if (e.key == "Enter") {
       let openURL = new MozActivity({
         name: "view",
@@ -48,3 +37,54 @@ function closeSelectionMenu(elementToFocus) {
   document.querySelector('#selectionsWrapper').classList.add('hidden')
   setTimeout(() => { elementToFocus.focus() }, 100);
 }
+
+// function ac() {
+//   let xhr = new XMLHttpRequest({ mozSystem: true });
+//   xhr.open('GET', 'https://duckduckgo.com/ac/?q=super', true);
+//   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+//   xhr.onreadystatechange = function () {
+//     if (xhr.readyState == 4 && xhr.status == 200) {
+//       alert(xhr.responseText)
+//     }
+//   };
+//   // error handler
+//   xhr.addEventListener("error", handleEvent);
+//   function handleEvent(e) {
+//     console.log(e)
+//     alert('There was an error with the XHR Request.')
+//   }
+//   xhr.send();
+// } ac();
+function images() {
+  let xhr = new XMLHttpRequest({ mozSystem: true });
+  xhr.open('GET', 'https://duckduckgo.com/i.js?l=us-en&bpia=1&o=json&q=Fortnite%20balls&vqd=4-178787821171979946337342316025989161810&f=,,,,,&p=-1', true);
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      alert(xhr.responseText)
+    }
+  };
+  // error handler
+  xhr.addEventListener("error", handleEvent);
+  function handleEvent(e) {
+    console.log(e)
+    alert('There was an error with the XHR Request.')
+  }
+  xhr.send();
+} images();
+
+
+function getScrollAmount(element) {
+  // Get the bounding rectangle of the element relative to the viewport
+  const rect = element.getBoundingClientRect();
+
+  // Calculate the scroll amount needed to bring the element into view
+  const scrollAmount = rect.top;
+
+  return scrollAmount;
+}
+
+// Example usage:
+const fourthElement = document.querySelector('#search'); // Replace 'fourthElement' with the id of your fourth div
+const scrollAmount = getScrollAmount(fourthElement);
+console.log("Scroll amount needed:", scrollAmount);

@@ -148,6 +148,7 @@ body {
 
 .search-result__url::before {
     content: "";
+    position: relative;
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -197,13 +198,12 @@ body {
 
 #selectionOptions {
     padding: 6px 6px 8px 6px;
-    min-height: 100px;
+    /* min-height: 100px; */
     display: flex;
     flex-direction: column;
 }
 
 .selectionOption {
-    background: none;
     outline: none;
     border: none;
     text-align: left;
@@ -266,14 +266,4 @@ body {
 
 #right {
     text-align: right;
-}
-
-iframe {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 294px;
-    width: 240px;
-    outline: 20px solid red;
-    z-index: 1000000;
 }
