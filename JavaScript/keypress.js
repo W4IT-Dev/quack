@@ -1,6 +1,8 @@
 window.addEventListener('keydown', e => {
-    if (e.key.includes('ArrowDown') && getScrollAmount(document.querySelectorAll('.navItem')[([...document.querySelectorAll('.navItem')].indexOf(document.activeElement) + 1)]) <= 294.625) e.preventDefault();
-    if (e.key.includes('ArrowUp') && getScrollAmount(document.querySelectorAll('.navItem')[([...document.querySelectorAll('.navItem')].indexOf(document.activeElement) + 1)]) <= -294.625) e.preventDefault();
+    let a =document.querySelectorAll('.navItem')[([...document.querySelectorAll('.navItem')].indexOf(document.activeElement) + 1)]
+    let b =document.querySelectorAll('.navItem')[([...document.querySelectorAll('.navItem')].indexOf(document.activeElement) + 1)]
+    if (e.key.includes('ArrowDown') && a && getScrollAmount(a) <= 294.625) e.preventDefault();
+    if (e.key.includes('ArrowUp') && b &&getScrollAmount(b) <= -294.625) e.preventDefault();
     if (e.key == "Enter") {
         const activeElement = document.activeElement;
         if (activeElement.classList.toString().includes('result')) return activeElement.querySelector('a').click();
@@ -21,8 +23,8 @@ window.addEventListener('keydown', e => {
         }
     }
     if (e.key === "0") {
-        navigator.spatialNavigationEnabled = true;
+        // navigator.spatialNavigationEnabled = true;
     }
 
-    if (e.key === "9") imageSearch('samra')
+    if (e.key === "9") images()
 })

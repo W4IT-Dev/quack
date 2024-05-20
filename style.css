@@ -109,6 +109,11 @@ body {
     padding: 5px 11px 15px 11px;
 }
 
+.search-result {
+    max-height: 270px;
+    overflow: hidden;
+}
+
 .quick-result {
     background-color: rgb(242, 242, 242);
     color: rgb(34, 34, 34);

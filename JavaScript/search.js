@@ -1,24 +1,3 @@
-function imageSearch(query) {
-    let xhr = new XMLHttpRequest({ mozSystem: true });
-    xhr.open('GET', 'https://duckduckgo.com/?q=' + encodeURIComponent(query) + '&iax=images&ia=images', true);
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText)
-            let a = confirm(xhr.responseText)
-            if (a === true) document.body.innerHTML = xhr.responseText
-            // parseSearchResults(xhr.responseText);
-        }
-    };
-    // error handler
-    xhr.addEventListener("error", handleEvent);
-    function handleEvent(e) {
-        console.log(e)
-        alert('There was an error with the XHR Request.')
-    }
-    xhr.send();
-}
-
 function search(query) {
     let xhr = new XMLHttpRequest({ mozSystem: true });
     xhr.open('GET', 'https://duckduckgo.com/html?q=' + encodeURIComponent(query), true);
