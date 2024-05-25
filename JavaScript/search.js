@@ -41,6 +41,7 @@ function parseSearchResults(html) {
     searchResults.querySelector('.navItem').focus();
     var links = document.querySelectorAll("a[href]");
     links.forEach(function (link) {
+        if(links.id === "backToTop") return
         link.addEventListener("click", function (event) {
             // Add your loading event here
             event.preventDefault();

@@ -17,8 +17,7 @@ document.addEventListener('keydown', e => {
     if (e.key == "ArrowUp") {
         let b = document.querySelectorAll('.navItem')[([...document.querySelectorAll('.navItem')].indexOf(document.activeElement) - 1)]
         if (b) {
-            let scrollAmountNeeded = getScrollAmount(b)
-            if (scrollAmountNeeded >= -294.625) document.activeElement.classList.contains('selectionNavItem') ? nav(-1, 'selectionNavItem') : nav(-1, 'navItem');
+document.activeElement.classList.contains('selectionNavItem') ? nav(-1, 'selectionNavItem') : nav(-1, 'navItem');
         }
     }
 });

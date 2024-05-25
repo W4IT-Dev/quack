@@ -17,6 +17,10 @@
     <script src="/nav.js" defer></script>
 
 
+    <script src="/JavaScript/imageSearch.js" defer></script>
+
+
+    <script src="DDG Search/news.js"></script>
     <script src="/debug.js" defer></script>
 
 </head>
@@ -30,7 +34,15 @@
                     onblur="setSoftkey()" onfocus="setSoftkey('', `search`)" data-translate="search_placeholder">
             </div>
         </div>
+        <div id="searchResultTypes">
+            <div id="all"></div>
+            <div id="images"></div>
+            <div id="videos"></div>
+            <div id="news"></div>
+            <div id="shopping"></div>
+        </div>
         <div id="searchResults"></div>
+        <div><a href="#searchInput" class="navItem" tabindex="0" id="backToTop">Back to the top</a></div>
     </div>
     <div id="selectionsWrapper" class="hidden">
         <div id="selectionDiv">

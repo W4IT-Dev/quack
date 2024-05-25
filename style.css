@@ -76,14 +76,14 @@ body {
     background: url("/loupe_gray.png") no-repeat;
     background-size: 19px;
     background-position: 196px center;
-    padding-right: 30px;
+    padding-right: 32px;
 }
 
 #searchInput:focus {
     background: url("/loupe_focus.png") no-repeat;
     background-size: 40px;
     background-position: 183px;
-    padding-right: 30px;
+    padding-right: 42px;
 }
 
 #searchButton {

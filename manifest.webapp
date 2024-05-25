@@ -1,7 +1,7 @@
 {
-  "version": "0.0.14.3",
+  "version": "0.0.15.2",
   "name": "KaiKaiGo",
-  "description": "A file simple example manifest.webapp",
+  "description": "Browse through DuckDuckGo",
   "type": "privileged",
   "launch_path": "/index.html",
   "icons": {
@@ -14,17 +14,17 @@
   },
   "locales": {
     "en-US": {
-      "name": "KaiKaiGo",
+      "name": "Quack!",
       "subtitle": "Unofficial DuckDuckGo Client",
       "description": "Browse through DuckDuckGo"
     },   
     "de-DE": {
-      "name": "KaiKaiGo",
+      "name": "Quack!",
       "subtitle": "Inoffizieller DuckDuckGo-Client",
       "description": "Stöber druch DuckDuckGo"
     },
     "es-ES": {
-      "name": "KaiKaiGo",
+      "name": "Quack!",
       "subtitle": "Cliente no oficial de DuckDuckGo",
       "description": "Navegar a través de DuckDuckGo"
     }
