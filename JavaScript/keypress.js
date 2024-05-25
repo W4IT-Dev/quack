@@ -30,5 +30,4 @@ window.addEventListener('keydown', e => {
         // navigator.spatialNavigationEnabled = true;
     }
 
-    if (e.key === "9") images()
 })

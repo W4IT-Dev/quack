@@ -72,9 +72,9 @@ _get_vqd('Test')
     .then((value) => {
 
         console.log(value);
-        alert(value)
+        // alert(value)
     })
     .catch((err) => {
         console.error(err);
-        alert(err)
+        // alert(err)
     });

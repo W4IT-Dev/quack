@@ -172,6 +172,7 @@ body {
 
 /*  selection modal thinggy */
 #selectionsWrapper {
+    z-index: 10000000000;
     height: 294px;
     width: 240px;
     position: fixed;
