@@ -10,8 +10,7 @@ function imageSearch(query) {
     // error handler
     xhr.addEventListener("error", handleEvent);
     function handleEvent(e) {
-        console.log(e)
-        alert('There was an error with the XHR Request.')
+        debug(e, 'red')
     }
     xhr.send();
 }
@@ -39,19 +38,16 @@ function _extract_vqd(htmlString, keywords) {
 }
 
 
-function _get_vqd(keywords) {
+function _get_vqd(keywords,) {
     return new Promise((resolve, reject) => {
         var xhr = new XMLHttpRequest({ mozSystem: true });
         xhr.open("POST", "https://duckduckgo.com/", true);
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
-
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     try {
                         var vqd = _extract_vqd(xhr.responseText, keywords);
-                        console.log('function 2')
                         resolve(vqd);
                     } catch (e) {
                         reject(e);
@@ -70,11 +66,8 @@ function _get_vqd(keywords) {
 
 _get_vqd('Test')
     .then((value) => {
-
-        console.log(value);
-        // alert(value)
+        debug(value, 'white')
     })
     .catch((err) => {
-        console.error(err);
-        // alert(err)
+        debug(err, 'red')
     });

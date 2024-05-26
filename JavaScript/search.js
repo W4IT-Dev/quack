@@ -10,8 +10,7 @@ function search(query) {
     // error handler
     xhr.addEventListener("error", handleEvent);
     function handleEvent(e) {
-        console.log(e)
-        alert('There was an error with the XHR Request.')
+        debug(e,'red')
     }
     xhr.send();
 }

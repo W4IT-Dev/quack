@@ -1,5 +1,5 @@
 {
-  "version": "0.0.15.3",
+  "version": "0.0.15.6",
   "name": "KaiKaiGo",
   "description": "Browse through DuckDuckGo",
   "type": "privileged",
@@ -14,7 +14,7 @@
   },
   "locales": {
     "en-US": {
-      "name": "Quack!",
+      "name": "Quack!", 
       "subtitle": "Unofficial DuckDuckGo Client",
       "description": "Browse through DuckDuckGo"
     },   
