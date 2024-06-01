@@ -1,3 +1,4 @@
+
 function errorHandler(message, source, lineno, colno, error) {
   const errorMessage = `
       Message: ${message}
