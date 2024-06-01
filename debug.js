@@ -66,7 +66,7 @@ function debug(text, color) {
 document.addEventListener('keydown', e => {
     if (e.key == "#") document.querySelector('#debug_console').classList.toggle('hidden')
     if (e.key == "*") {
-        let testType = prompt('Input test type ( vqd.1(x-req)/.2(con-type)/.3(both) | all | image | video | news | shopping)')
+        let testType = prompt('Input test type ( vqd | all | image | video | news | shopping)')
         if (testType && testType !== "exit") debugTest(testType)
     }
 })
@@ -74,31 +74,8 @@ document.addEventListener('keydown', e => {
 function debugTest(testType) {
     const testQuery = prompt('Input test query')
     switch (testType) {
-        case 'vqd.1' :
-            _get_vqd(testQuery, 'x-req')
-                .then((value) => {
-                    debug(value, 'green')
-                    alert(value)
-                })
-                .catch((error) => {
-                    debug(error, 'red')
-                    alert(error)
-                })
-            break;
-
-        case 'vqd.2':
-            _get_vqd(testQuery, 'con-type')
-                .then((value) => {
-                    debug(value, 'green')
-                    alert(value)
-                })
-                .catch((error) => {
-                    debug(error, 'red')
-                    alert(error)
-                })
-            break;
-        case 'vqd.3':
-            _get_vqd(testQuery, 'con-type')
+        case 'vqd':
+            getVQD(testQuery)
                 .then((value) => {
                     debug(value, 'green')
                     alert(value)
@@ -117,15 +94,13 @@ function debugTest(testType) {
             break;
 
         case 'image':
-            alert('Not implemented!')
-
+            imageSearch(testQuery)
             break;
         case 'video':
-            alert('Not implemented!')
-
+            videoSearch(testQuery)
             break;
         case 'shopping':
-            alert('Not implemented!')
+            shoppingSearch(testQuery)
             break;
 
         default:

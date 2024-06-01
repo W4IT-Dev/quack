@@ -1,12 +1,12 @@
 function newsSearch(query) {
     let xhr = new XMLHttpRequest({ mozSystem: true });
     let vqd;
-    _get_vqd(query)
+    getVQD(query)
         .then((value) => {
             vqd = value;
             console.log(value);
             debug(value, 'white')
-            const URL = `https://duckduckgo.com/news.js?l=us-en&o=json&noamp=1&m=30&q=${query}&vqd=${vqd}&p=-2&df=&u=bing`
+            const URL = `https://duckduckgo.com/news.js?o=json&noamp=1&m=30&q=${encodeURIComponent(query)}&vqd=${vqd}&p=-2&df=&u=bing`
             xhr.open('GET', URL, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onreadystatechange = function () {
