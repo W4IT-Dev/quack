@@ -69,7 +69,7 @@ function displayQuickResult(title, snippet, url, image) {
 function displaySearchResult(title, snippet, urlElement, icon) {
     let div = document.createElement('div');
     div.classList.add('search-result', 'navItem')
-    div.onfocus = () => setSoftkey('<img src="/loupe_black.png" style="width:20px; padding-top: 2px;">', `${translate('open')}`)
+    div.onfocus = () => setSoftkey('<img src="assets/loupe_black.png" style="width:20px; padding-top: 2px;">', `${translate('open')}`)
     div.onblur = () => setSoftkey()
     div.tabIndex = 0;
     div.dataset.icon = icon

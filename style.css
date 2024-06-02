@@ -1,3 +1,7 @@
+*:focus {
+    outline: none;
+}
+
 /* Basic styles for simplicity */
 
 input[type="text"] {
@@ -73,14 +77,14 @@ body {
 }
 
 #searchInput {
-    background: url("/loupe_gray.png") no-repeat;
+    background: url("assets/loupe_gray.png") no-repeat;
     background-size: 19px;
     background-position: 196px center;
     padding-right: 34px;
 }
 
 #searchInput:focus {
-    background: url("/loupe_focus.png") no-repeat;
+    background: url("assets/loupe_focus.png") no-repeat;
     background-size: 40px;
     background-position: 183px;
     padding-right: 46px;
@@ -112,6 +116,12 @@ body {
 .search-result {
     max-height: 270px;
     overflow: hidden;
+}
+
+
+.search-result img {
+    max-width: 220px;
+    max-height: 190px;
 }
 
 .quick-result {
@@ -165,9 +175,67 @@ body {
 }
 
 .quick-result:focus,
-.search-result:focus {
+.search-result:focus,
+.image-search-result:focus {
     outline: 1px solid red;
     background-color: #d3d3d3 !important;
+}
+
+/* Search types */
+
+#searchResultTypes {
+    display: flex;
+    padding: 2px 8px;
+    justify-content: space-between;
+}
+
+#searchResultTypes div {
+    display: flex;
+    align-items: center;
+}
+
+#searchResultTypes div svg {
+    padding-right: 3px;
+}
+
+#searchResultTypes div span {
+    display: none;
+}
+
+#searchResultTypes div:focus span,
+#searchResultTypes div.selectedOption span {
+    display: block;
+
+}
+
+#searchResultTypes div * {
+    color: grey;
+    padding-bottom: 5px;
+    /* height: 17px; */
+}
+
+#searchResultTypes div:focus * {
+    color: black;
+    font-weight: 600;
+}
+
+#searchResultTypes div:focus {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+}
+
+#searchResultTypes div.selectedOption {
+    border-bottom: 2px solid #3969EF;
+    border-radius: 2px;
+}
+
+#searchResultTypes div.selectedOption:focus {
+    border-bottom: 3px solid #3969EF;
+    border-radius: 2px;
+}
+
+#searchResultTypes div.selectedOption * {
+    color: #3969EF;
 }
 
 /*  selection modal thinggy */
