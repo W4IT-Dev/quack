@@ -5,6 +5,8 @@ window.addEventListener('keydown', e => {
     if (e.key.includes('ArrowUp') && !document.activeElement.classList.contains('quick-result') && document.activeElement.classList.contains('search-result')) e.preventDefault();
     if (e.key == "Enter") {
         const activeElement = document.activeElement;
+        if (activeElement == searchInput) return search(searchInput.value)
+
         if (activeElement.firstElementChild.classList.contains('searchResultTypesImage')) {
             let a = activeElement.querySelector('span').textContent.toLocaleLowerCase()
             if (a === "all") search(searchInput.value)
@@ -12,7 +14,6 @@ window.addEventListener('keydown', e => {
         }
         if (activeElement.classList.toString().includes('result')) return activeElement.querySelector('a').click();
 
-        if (activeElement == searchInput) return search(searchInput.value)
     }
     if (e.key == "SoftLeft" || e.key == "F2") {
         let a = document.querySelector('#searchInput')

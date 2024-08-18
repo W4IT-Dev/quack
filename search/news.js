@@ -1,0 +1,8 @@
+function searchNews(){
+    
+}
+
+function displaySearchNews(){
+
+}
+

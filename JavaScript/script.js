@@ -6,8 +6,8 @@ function errorHandler(message, source, lineno, colno, error) {
       Line number: ${lineno}
       Error object: ${error}
     `;
-
-  alert(errorMessage)
+console.log(errorMessage)
+  // alert(errorMessage)
 
 }
 window.onerror = errorHandler;

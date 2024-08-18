@@ -1,9 +1,9 @@
 {
-  "version": "0.0.15.8",
+  "version": "0.0.15.9.2",
   "name": "KaiKaiGo",
   "description": "Browse through DuckDuckGo",
   "type": "privileged",
-  "launch_path": "/index.html",
+  "launch_path": "/main.html",
   "icons": {
     "56": "/icon.png",
     "112": "/icon.png"

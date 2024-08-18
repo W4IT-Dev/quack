@@ -55,6 +55,7 @@ a {
 /* NEW */
 
 body {
+    text-align: center;
     width: 240px;
     height: 294px;
     margin: 0;
@@ -103,7 +104,7 @@ body {
     height: 40px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    font-size: 19px;
+    font-size: 20px;
     line-height: 10px;
 }
 
@@ -122,6 +123,16 @@ body {
 .search-result img {
     max-width: 220px;
     max-height: 190px;
+}
+
+.search-result img::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content:  "test";
+    background-color: red;
+    width: 100px;
+    height: 40px;
 }
 
 .quick-result {

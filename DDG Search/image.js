@@ -13,9 +13,13 @@ function imageSearch(query) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     // console.log(xhr.responseText)
                     // alert(xhr.responseText)
-                    let response = JSON.parse(result)
-                    for (let i = 0; i < response.length; i++) {
-                        const element = response[i];
+                    let response = xhr.responseText
+                    console.log(response)
+                    console.log(JSON.parse(response).results.length)
+                    searchResults.innerHTML = ""
+                    for (let i = 0; i < JSON.parse(response).results.length; i++) {
+                        console.log('a')
+                        const element = JSON.parse(response).results[i];
                         displayImageSearchResult(element.title, element.url, element.thumbnail, element.height, element.width)
                     }
                 }
@@ -36,6 +40,7 @@ function imageSearch(query) {
 function displayImageSearchResult(title, url, source, height, width) {
     let div = document.createElement('div');
     div.classList.add('search-result', 'navItem');
+    div.style.textAlign = "center"
     div.tabIndex = 0;
     div.onfocus = () => setSoftkey('<img src="assets/loupe_black.png" style="width:20px; padding-top: 2px;"></img>', translate('open'), '<img src="assets/share.png" style="width: 20px; padding-top: 2px;"')
     div.onblur = () => setSoftkey()
@@ -48,6 +53,7 @@ function displayImageSearchResult(title, url, source, height, width) {
     linkTitle.href = url
 
     div.appendChild(img)
+    div.appendChild(document.createElement('br'))
     div.appendChild(linkTitle)
     console.log(div)
     searchResults.appendChild(div)

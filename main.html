@@ -4,47 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DuckDuckGo Search</title>
+    <title>Quack!</title>
+
+    <meta name="theme-color" content="rgb(0,0,0);">
+
     <link rel="stylesheet" href="style.css">
 
-    <script src="Translations/translate.js" defer></script>
-
-    <script src="debug.js"></script>
-
-
-    <!-- ### App  -->
-    <script src="JavaScript/DOM.js" defer></script>
-    <script src="JavaScript/softkey.js" defer></script>
-    <script src="JavaScript/nav.js" defer></script>
-    <script src="JavaScript/script.js" defer></script>
-    <script src="JavaScript/keypress.js" defer></script>
-
-    <!-- DDG Search -->
-    <script src="DDG Search/vqd.js" defer> </script>
-    <script src="DDG Search/ac.js" defer></script>
-    <script src="DDG Search/all.js" defer></script>
-    <script src="DDG Search/image.js" defer></script>
-    <script src="DDG Search/news.js" defer></script>
-    <script src="DDG Search/shopping.js" defer></script>
-    <script src="DDG Search/video.js" defer></script>
+    <script src="script/nav.js" defer></script>
+    
+    <script src="search/vqd.js" defer></script>
+    <script src="search/all.js" defer></script>
+    <script src="search/images.js" defer></script>
+    <script src="search/videos.js" defer></script>
+    <script src="search/news.js" defer></script>
+    <script src="search/shopping.js" defer></script>
 </head>
 
-<body tabindex="0">
-    <div id="debug_console" class="hidden">
-        <h4 style="padding: 0; margin: 0;">Debug console</h4>
-    </div>
-
+<body>
+    <img src="icon.png" width="137px" alt="Quack!">
     <div id="search">
-        <div style="text-align: center;">
-            <img id="duckduckgoLogo" src="icon.png" width="137px" alt="DuckDuckGo">
-            <div id="searchBarWrapper">
-                <input type="text" id="searchInput" class="navItem" tabindex="0" placeholder="Search"
-                    onblur="setSoftkey()" onfocus="setSoftkey('', `search`)" data-translate="search_placeholder">
-                    <div id="autocompleteWrapper" style="position: absolute; left: 0; background-color: white;"></div>
-            </div>
+        <div id="searchBarWrapper">
+            <input type="text" name="searchInput" placeholder="Search" id="searchInput" class="navItemVertical"
+                data-navDown="#searchResultTypes .selectedOption" data-translate="search_input_placeholder">
+            <!-- <div id="autoComplete" class="navItemVertical"></div> -->
         </div>
         <div id="searchResultTypes" class="">
-            <div id="all" class="selectedOption navItem" tabindex="0">
+            <div id="all" class="selectedOption navItemVertical navItemHorizontal"
+                data-navDown="#searchResults .search-result" data-navUp="#searchInput" data-navRight="#images"
+                tabindex="0">
                 <svg class="searchResultTypesImage" width="20" height="20" viewBox="0 0 16 16" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -53,7 +40,8 @@
                 </svg>
                 <span>All</span>
             </div>
-            <div id="images" class=" navItem" tabindex="0">
+            <div id="images" class="navItemHorizontal" data-navDown="#searchResults .search-result"
+                data-navUp="#searchInput" data-navLeft="#all" data-navRight="#videos" tabindex="0">
                 <svg class="searchResultTypesImage" width="20" height="20" viewBox="0 0 16 16" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -65,7 +53,8 @@
                 </svg>
                 <span>Images</span>
             </div>
-            <div id="videos" class=" navItem" tabindex="0">
+            <div id="videos" class="navItemHorizontal" data-navDown="#searchResults .search-result"
+                data-navUp="#searchInput" data-navLeft="#images" data-navRight="#news" tabindex="0">
                 <svg class="searchResultTypesImage" width="20" height="20" viewBox="0 0 16 16" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -74,7 +63,8 @@
                 </svg>
                 <span>Videos</span>
             </div>
-            <div id="news" class=" navItem" tabindex="0">
+            <div id="news" class="navItemHorizontal" data-navDown="#searchResults .search-result"
+                data-navUp="#searchInput" data-navLeft="#videos" data-navRight="#shopping" tabindex="0">
                 <svg class="searchResultTypesImage" width="20" height="20" viewBox="0 0 16 16" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -95,7 +85,8 @@
                 </svg>
                 <span>News</span>
             </div>
-            <div id="shopping" class=" navItem" tabindex="0">
+            <div id="shopping" class="navItemHorizontal" data-navDown="#searchResults .search-result"
+                data-navUp="#searchInput" data-navLeft="#news" tabindex="0">
                 <svg class="searchResultTypesImage" width="20" height="20" viewBox="0 0 16 16" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -105,33 +96,8 @@
                 <span>Shopping</span>
             </div>
         </div>
-        <div id="searchResults"></div>
-        <div><a href="#searchInput" class="navItem" tabindex="0" id="backToTop">Back to the top</a></div>
     </div>
-    <div id="selectionsWrapper" class="hidden">
-        <div id="selectionDiv">
-            <div id="selectionHeader" data-translate="open_via">Open via</div>
-            <div id="selectionOptions">
-                <!-- <button class="selectionOption selectionNavItem" id="selectionOptions1" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')">App</button> -->
-                <div class="selectionOption selectionNavItem" id="selectionOptions1" tabindex="0" onblur="setSoftkey();"
-                    onfocus="setSoftkey('', 'select')" data-translate="tab">Tab</div>
-                <div class="selectionOption selectionNavItem" id="selectionOptions2" tabindex="0" onblur="setSoftkey();"
-                    onfocus="setSoftkey('', 'select')" data-translate="browser">Browser</div>
-                <div class="selectionOption selectionNavItem hidden" id="selectionOptions3" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')"></div>
-                <div class="selectionOption selectionNavItem hidden" id="selectionOptions4" tabindex="0"
-                    onblur="setSoftkey();" onfocus="setSoftkey('', 'select')"></div>
-
-            </div>
-        </div>
-    </div>
-    <iframe src="" frameborder="0" class="hidden"></iframe>
-    <div id="softkeys">
-        <div id="left">Left</div>
-        <div id="center">Center</div>
-        <div id="right">Right</div>
-    </div>
+    <div id="searchResults" class=""></div>
 </body>
 
 </html>

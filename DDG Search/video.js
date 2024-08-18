@@ -6,7 +6,7 @@ function videoSearch(query) {
             vqd = value;
             debug(value, 'white')
 
-            const URL = `https://duckduckgo.com/v.js?l=wt-wt&o=json&sr=1&q=${encodeURIComponent(query)}&vqd=${vqd}&f=,,,&p=-2`
+            const URL = `https://duckduckgo.com/v.js?l=wt-wt&o=json&sr=1&q=${encodeURIComponent(query)}&vqd=${vqd}&f=,,,&p=-1`
             xhr.open('GET', URL, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onreadystatechange = function () {

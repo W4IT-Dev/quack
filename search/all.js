@@ -1,0 +1,5 @@
+function searchAll() {}
+
+function displaySearchAll() {
+    
+}
